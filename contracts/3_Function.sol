@@ -18,9 +18,11 @@ contract FunctionType{
     function minus() internal{
         _number = _number + 1;
     }
+    //可以通过外部方法间接访问内部方法
     function minusCall() external{
         minus();
     }
+    //payable表示这个地址可以支付
     function minusPayable() external payable returns (uint256 balance){
         minus();
         balance=address(this).balance;
